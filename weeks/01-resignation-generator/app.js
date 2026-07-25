@@ -179,8 +179,9 @@ async function saveImage() {
   ctx.fillText("사  직  서", W / 2, 160);
 
   // 인적사항 표
-  const dept = $("fieldDept").value.trim() || "-";
-  const rank = $("fieldRank").value.trim() || "-";
+  // 비워두면 placeholder의 재미 기본값으로 채움
+  const dept = $("fieldDept").value.trim() || "주식회사 버티기";
+  const rank = $("fieldRank").value.trim() || "만년 사원";
   const name = fieldName.value.trim() || "홍길동";
   const tableX = 100, tableY = 240, tableW = W - 200, rowH = 62, labelW = 130;
   const rows = [["소  속", dept], ["직  급", rank], ["성  명", name]];

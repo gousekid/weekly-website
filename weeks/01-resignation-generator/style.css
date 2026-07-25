@@ -57,6 +57,15 @@ body {
 .mode-btn.is-active { background: var(--ink); color: #fff; }
 .mode-btn:not(.is-active):hover { background: rgba(0,0,0,.06); }
 
+.edit-hint {
+  font-size: .88rem;
+  color: #6b5f52;
+  background: rgba(255,255,255,.5);
+  border: 1px dashed rgba(0,0,0,.18);
+  border-radius: 999px;
+  padding: 6px 16px;
+}
+
 /* 사직서 종이 */
 .paper {
   width: 100%;
@@ -109,12 +118,20 @@ body {
 .info-table input {
   width: 100%;
   border: 0;
+  border-bottom: 1px dashed rgba(74,64,56,.4);
   background: transparent;
   font: inherit;
   color: inherit;
   outline: none;
+  padding: 2px 0 4px;
+  transition: border-color .15s ease, background .15s ease;
 }
-.info-table input:focus { background: rgba(192,57,43,.06); }
+.info-table input::placeholder { color: #b5a894; }
+.info-table input:hover { background: rgba(192,57,43,.04); }
+.info-table input:focus {
+  background: rgba(192,57,43,.06);
+  border-bottom: 1px solid var(--red);
+}
 
 .reason-block { min-height: 120px; }
 .reason-label {
