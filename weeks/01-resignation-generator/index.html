@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 퇴사 사유 생성기</title>
+  <meta name="description" content="버튼 하나로 완성되는 나만의 사직서. 진지 모드부터 광기 모드까지, 오늘의 퇴사 사유를 뽑아보세요.">
+  <meta property="og:title" content="오늘의 퇴사 사유 생성기">
+  <meta property="og:description" content="버튼 하나로 완성되는 나만의 사직서. 오늘의 퇴사 사유를 뽑아보세요.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Pretendard:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="site-header">
+      <h1 class="site-title">오늘의 퇴사 사유 생성기</h1>
+      <p class="site-sub">마음속에만 품어왔던 그 문서, 오늘 미리 써봅니다</p>
+    </header>
+
+    <div class="mode-toggle" role="tablist" aria-label="사유 모드 선택">
+      <button class="mode-btn is-active" id="modeSerious" role="tab" aria-selected="true">진지 모드</button>
+      <button class="mode-btn" id="modeMad" role="tab" aria-selected="false">광기 모드</button>
+    </div>
+
+    <section class="paper" id="paper" aria-label="사직서 문서">
+      <div class="paper-inner">
+        <h2 class="doc-title">사&nbsp;&nbsp;직&nbsp;&nbsp;서</h2>
+
+        <table class="info-table">
+          <tbody>
+            <tr>
+              <th scope="row">소속</th>
+              <td><input type="text" id="fieldDept" value="주식회사 버티기" maxlength="20" aria-label="소속"></td>
+            </tr>
+            <tr>
+              <th scope="row">직급</th>
+              <td><input type="text" id="fieldRank" value="만년 사원" maxlength="20" aria-label="직급"></td>
+            </tr>
+            <tr>
+              <th scope="row">성명</th>
+              <td><input type="text" id="fieldName" value="홍길동" maxlength="10" aria-label="성명"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="reason-block">
+          <p class="reason-label">사&nbsp;&nbsp;유</p>
+          <p class="reason-text" id="reasonText" aria-live="polite"></p>
+        </div>
+
+        <p class="closing">위와 같은 사유로 사직하고자 하오니<br>재가하여 주시기 바랍니다.</p>
+
+        <p class="doc-date" id="docDate"></p>
+
+        <div class="sign-row">
+          <span class="sign-label">신청인:</span>
+          <span class="sign-name" id="signName">홍길동</span>
+          <span class="stamp" id="stamp" aria-hidden="true">홍</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="controls">
+      <button class="btn btn-primary" id="btnDraw">다른 사유 뽑기</button>
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="btnSave">이미지 저장</button>
+        <button class="btn btn-secondary" id="btnShare">공유하기</button>
+      </div>
+    </div>
+
+    <p class="toast" id="toast" role="status"></p>
+
+    <footer class="site-footer">
+      <p>weekly-website · week 01 · 실제 제출 시 책임지지 않습니다</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
