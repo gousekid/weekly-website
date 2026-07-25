@@ -13,51 +13,56 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button class="lang-btn is-active" id="langKo">한국어</button>
+    <button class="lang-btn" id="langEn">EN</button>
+  </div>
+
   <main class="wrap">
     <header class="site-header">
-      <h1 class="site-title">오늘의 퇴사 사유 생성기</h1>
-      <p class="site-sub">마음속에만 품어왔던 그 문서, 오늘 미리 써봅니다</p>
+      <h1 class="site-title" id="siteTitle">오늘의 퇴사 사유 생성기</h1>
+      <p class="site-sub" id="siteSub">마음속에만 품어왔던 그 문서, 오늘 미리 써봅니다</p>
     </header>
 
-    <div class="mode-toggle" role="tablist" aria-label="사유 모드 선택">
+    <div class="mode-toggle" role="tablist" aria-label="mode">
       <button class="mode-btn is-active" id="modeSerious" role="tab" aria-selected="true">진지 모드</button>
       <button class="mode-btn" id="modeMad" role="tab" aria-selected="false">광기 모드</button>
     </div>
 
-    <p class="edit-hint">✏️ 소속 · 직급 · 성명 칸은 눌러서 직접 채울 수 있어요</p>
+    <p class="edit-hint" id="editHint">✏️ 소속 · 직급 · 성명 칸은 눌러서 직접 채울 수 있어요</p>
 
-    <section class="paper" id="paper" aria-label="사직서 문서">
+    <section class="paper" id="paper" aria-label="document">
       <div class="paper-inner">
-        <h2 class="doc-title">사&nbsp;&nbsp;직&nbsp;&nbsp;서</h2>
+        <h2 class="doc-title" id="docTitle">사&nbsp;&nbsp;직&nbsp;&nbsp;서</h2>
 
         <table class="info-table">
           <tbody>
             <tr>
-              <th scope="row">소속</th>
-              <td><input type="text" id="fieldDept" placeholder="주식회사 버티기" maxlength="20" aria-label="소속"></td>
+              <th scope="row" id="thDept">소속</th>
+              <td><input type="text" id="fieldDept" placeholder="주식회사 버티기" maxlength="24" aria-label="소속"></td>
             </tr>
             <tr>
-              <th scope="row">직급</th>
-              <td><input type="text" id="fieldRank" placeholder="만년 사원" maxlength="20" aria-label="직급"></td>
+              <th scope="row" id="thRank">직급</th>
+              <td><input type="text" id="fieldRank" placeholder="만년 사원" maxlength="24" aria-label="직급"></td>
             </tr>
             <tr>
-              <th scope="row">성명</th>
-              <td><input type="text" id="fieldName" placeholder="홍길동" maxlength="10" aria-label="성명"></td>
+              <th scope="row" id="thName">성명</th>
+              <td><input type="text" id="fieldName" placeholder="홍길동" maxlength="16" aria-label="성명"></td>
             </tr>
           </tbody>
         </table>
 
         <div class="reason-block">
-          <p class="reason-label">사&nbsp;&nbsp;유</p>
+          <p class="reason-label" id="reasonLabel">사&nbsp;&nbsp;유</p>
           <p class="reason-text" id="reasonText" aria-live="polite"></p>
         </div>
 
-        <p class="closing">위와 같은 사유로 사직하고자 하오니<br>재가하여 주시기 바랍니다.</p>
+        <p class="closing"><span id="closing1"></span><br><span id="closing2"></span></p>
 
         <p class="doc-date" id="docDate"></p>
 
         <div class="sign-row">
-          <span class="sign-label">신청인:</span>
+          <span class="sign-label" id="signLabel">신청인:</span>
           <span class="sign-name" id="signName">홍길동</span>
           <span class="stamp" id="stamp" aria-hidden="true">홍</span>
         </div>
@@ -75,10 +80,12 @@
     <p class="toast" id="toast" role="status"></p>
 
     <footer class="site-footer">
-      <p>weekly-website · week 01 · 실제 제출 시 책임지지 않습니다</p>
+      <p id="footerText">weekly-website · week 01 · 실제 제출 시 책임지지 않습니다</p>
     </footer>
   </main>
 
+  <script src="data/reasons-ko.js"></script>
+  <script src="data/reasons-en.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

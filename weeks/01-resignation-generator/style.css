@@ -30,6 +30,37 @@ body {
   gap: 20px;
 }
 
+/* 언어 토글 */
+.lang-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  gap: 2px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 999px;
+  padding: 3px;
+  z-index: 10;
+}
+.lang-btn {
+  border: 0;
+  background: transparent;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: .82rem;
+  color: #6b5f52;
+  cursor: pointer;
+}
+.lang-btn.is-active { background: var(--ink); color: #fff; }
+
+/* 영문 모드 조정 */
+body.lang-en .doc-title { font-size: 1.45rem; letter-spacing: .18em; text-indent: .18em; }
+body.lang-en .info-table th { width: 96px; letter-spacing: .04em; text-indent: 0; }
+body.lang-en .reason-label,
+body.lang-en .sign-name { letter-spacing: .08em; }
+
 .site-header { text-align: center; }
 .site-title { font-size: 1.7rem; font-weight: 600; letter-spacing: -0.02em; }
 .site-sub { margin-top: 6px; color: #6b5f52; font-size: .95rem; }
