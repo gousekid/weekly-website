@@ -8,7 +8,9 @@
 ## 기술 결정
 - 각 주차 사이트는 기본적으로 빌드 도구 없는 순수 정적 HTML/CSS/JS. 필요해지는 주차에만 도구 도입.
 - 이 머신에 Bun은 미설치 상태(2026-07-25 기준). 정적 사이트라 현재는 불필요. 도구가 필요해지면 Bun 우선 사용(전역 CLAUDE.md 정책).
-- 배포 대상: 정적 호스팅(GitHub Pages / Cloudflare Pages / Vercel 중 미확정). 루트+하위폴더 구조는 셋 다 호환.
+- 배포: GitHub Pages 확정 (2026-07-25). 공개 레포 `gousekid/weekly-website`, main 브랜치 루트에서 legacy build. push만 하면 자동 재배포.
+- 라이브 URL: https://gousekid.github.io/weekly-website/
+- 커밋 규칙: 커밋에 Claude 서명(Co-Authored-By 등) 넣지 않음. 저자는 gousekid만 (사용자 지시, 2026-07-25).
 
 ## 주차별 기록
 - Week 01 (2026-07-25): 오늘의 퇴사 사유 생성기 — `weeks/01-resignation-generator/`. 사직서 문서 UI, 진지/광기 모드, 캔버스 기반 이미지 저장, Web Share API 공유.

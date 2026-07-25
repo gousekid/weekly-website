@@ -6,6 +6,7 @@
 - [x] `weeks/01-resignation-generator/` 사이트 구현
 - [x] 루트 랜딩 페이지 작성
 - [x] 로컬 QA (뽑기/모드 전환/이미지 저장 blob 검증, 모바일 뷰포트) — 2026-07-25 통과
-- [ ] git 저장소 초기화 및 첫 커밋 (사용자 확인 후)
-- [ ] 배포 플랫폼 확정 및 배포 (사용자 확인 후)
-- [ ] 배포 URL을 docs/context에 기록
+- [x] git 저장소 초기화 및 첫 커밋 (abd7a3d)
+- [x] 배포: GitHub Pages 활성화 (gousekid/weekly-website, main 루트)
+- [x] 배포 URL을 docs/context에 기록
+- [x] 라이브 URL 최종 동작 확인 (2026-07-25, 콘솔 에러 0) — Week 01 완료 🎉
