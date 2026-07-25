@@ -13,7 +13,7 @@
 - 커밋 규칙: 커밋에 Claude 서명(Co-Authored-By 등) 넣지 않음. 저자는 gousekid만 (사용자 지시, 2026-07-25).
 
 ## 주차별 기록
-- Week 01 (2026-07-25): 오늘의 퇴사 사유 생성기 — `weeks/01-resignation-generator/`. 사직서 문서 UI, 진지/광기 모드, 캔버스 기반 이미지 저장, Web Share API 공유.
+- Week 01 (2026-07-25): 오늘의 퇴사 사유 생성기 — `weeks/01-resignation-generator/`. 사직서 문서 UI, 진지/광기 모드, 캔버스 기반 이미지 저장, Web Share API 공유. KO/EN 이중 언어(토글, localStorage, ?lang=en). 사유 풀: KO 1104/1104, EN 1080/1080 — 병렬 에이전트 16개(언어×모드×4테마)로 생성 후 정규화 중복 제거.
 
 ## 제약/리스크
 - 외부 의존성 최소화(각 사이트는 폰트 CDN 정도만 허용). 오프라인에서도 동작하도록 폰트 실패 시 시스템 serif 폴백.
