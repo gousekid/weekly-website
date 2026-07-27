@@ -38,8 +38,17 @@ const PROFILES = {
   blue:  { body: 1900, q: 1.1, decay: 0.070, gain: 0.85, click: 3600, clickGain: 0.55, sub: 0,   subGain: 0 },
   brown: { body: 1000, q: 0.9, decay: 0.055, gain: 0.80, click: 2200, clickGain: 0.18, sub: 0,   subGain: 0 },
   red:   { body: 620,  q: 0.8, decay: 0.048, gain: 0.70, click: 0,    clickGain: 0,    sub: 150, subGain: 0.10 },
-  // 무접점: 저음 쿵쿵이 아니라 중음대의 마르고 둥근 '도각'. 러버돔의 음정 하강(sub)이 핵심
-  topre: { body: 950,  q: 1.1, decay: 0.050, gain: 0.90, click: 1900, clickGain: 0.12, sub: 460, subGain: 0.30 },
+  // 무접점: 우드블록식 모달 합성 — 짧은 임펄스로 공명 필터를 때려 나무 '도각' 질감을 만든다
+  topre: {
+    modal: {
+      gain: 2.6,
+      modes: [
+        { f: 195,  q: 9,  g: 1.00, d: 0.070 }, // 몸통 노크
+        { f: 560,  q: 10, g: 0.45, d: 0.045 }, // 통 공명
+        { f: 1180, q: 8,  g: 0.22, d: 0.030 }, // 캡 두드림
+      ],
+    },
+  },
 };
 
 /* ---------- 상태 ---------- */
@@ -72,10 +81,58 @@ function initAudio() {
   for (let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
 }
 
+// 모달 합성: 임펄스(초단 노이즈) → 고Q 밴드패스 공명들 → 타악기식 '도각'
+function playModal(p, isBig, isRelease) {
+  const t = actx.currentTime;
+  const vary = (amt) => 1 + (Math.random() * 2 - 1) * amt;
+  const fScale = (isBig ? 0.75 : 1) * (isRelease ? 1.12 : 1) * vary(0.05);
+  const gScale = (isBig ? 1.15 : 1) * (isRelease ? 0.4 : 1) * vary(0.18);
+  const dScale = (isBig ? 1.2 : 1) * (isRelease ? 0.6 : 1);
+
+  const src = actx.createBufferSource();
+  src.buffer = noiseBuf;
+  const exc = actx.createGain(); // 4ms 임펄스 여진
+  exc.gain.setValueAtTime(1, t);
+  exc.gain.exponentialRampToValueAtTime(0.0001, t + 0.004);
+  src.connect(exc);
+
+  for (const m of p.modal.modes) {
+    const bp = actx.createBiquadFilter();
+    bp.type = "bandpass";
+    bp.frequency.value = m.f * fScale;
+    bp.Q.value = m.q;
+    const g = actx.createGain();
+    const peak = m.g * p.modal.gain * gScale;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(peak, t + 0.0015);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.0015 + m.d * dScale);
+    exc.connect(bp).connect(g).connect(master);
+  }
+  src.start(t);
+  src.stop(t + 0.03);
+
+  // 키캡 플라스틱 접촉음 (아주 작게)
+  if (!isRelease) {
+    const tap = actx.createBufferSource();
+    tap.buffer = noiseBuf;
+    const hp = actx.createBiquadFilter();
+    hp.type = "highpass";
+    hp.frequency.value = 2600;
+    const tg = actx.createGain();
+    tg.gain.setValueAtTime(0.0001, t);
+    tg.gain.exponentialRampToValueAtTime(0.05 * gScale, t + 0.001);
+    tg.gain.exponentialRampToValueAtTime(0.0001, t + 0.01);
+    tap.connect(hp).connect(tg).connect(master);
+    tap.start(t);
+    tap.stop(t + 0.015);
+  }
+}
+
 function playKey(isBig, isRelease) {
   if (!actx) return;
   if (actx.state === "suspended") actx.resume();
   const p = PROFILES[profile];
+  if (p.modal) return playModal(p, isBig, isRelease);
   const t = actx.currentTime;
   const vary = (amt) => 1 + (Math.random() * 2 - 1) * amt;
 
