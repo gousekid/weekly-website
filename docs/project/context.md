@@ -12,6 +12,10 @@
 - 라이브 URL: https://gousekid.github.io/weekly-website/
 - 커밋 규칙: 커밋에 Claude 서명(Co-Authored-By 등) 넣지 않음. 저자는 gousekid만 (사용자 지시, 2026-07-25).
 
+## 참고
+- 다음 주차 아이디어 백로그와 도메인 후보: `docs/project/ideas.md`
+- 커스텀 도메인: .com 구매 예정(2026-07-26 논의), 후보는 ideas.md 참조. 구매 후 GitHub Pages CNAME 연결 필요.
+
 ## 주차별 기록
 - Week 01 (2026-07-25): 오늘의 퇴사 사유 생성기 — `weeks/01-resignation-generator/`. 사직서 문서 UI, 진지/광기 모드, 캔버스 기반 이미지 저장, Web Share API 공유. KO/EN 이중 언어(토글, localStorage, ?lang=en). 사유 풀: KO 1104/1104, EN 1080/1080 — 병렬 에이전트 16개(언어×모드×4테마)로 생성 후 정규화 중복 제거.
 
