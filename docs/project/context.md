@@ -17,6 +17,7 @@
 - 커스텀 도메인: .com 구매 예정(2026-07-26 논의), 후보는 ideas.md 참조. 구매 후 GitHub Pages CNAME 연결 필요.
 
 ## 주차별 기록
+- Week 02 (2026-07-27): 키보드 타건 시뮬레이터 — `weeks/02-keyboard-simulator/`. 60% ANSI 가상 키보드, 4개 스위치 프로파일(청/갈/적/무접점)을 Web Audio API 실시간 합성(음원 파일 0개), 타건 히트맵, 타수/KPM/최애 키 통계, localStorage 유지.
 - Week 01 (2026-07-25): 오늘의 퇴사 사유 생성기 — `weeks/01-resignation-generator/`. 사직서 문서 UI, 진지/광기 모드, 캔버스 기반 이미지 저장, Web Share API 공유. KO/EN 이중 언어(토글, localStorage, ?lang=en). 사유 풀: KO 1104/1104, EN 1080/1080 — 병렬 에이전트 16개(언어×모드×4테마)로 생성 후 정규화 중복 제거.
 
 ## 제약/리스크

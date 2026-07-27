@@ -8,6 +8,7 @@
 
 | Week | 날짜 | 사이트 | 설명 |
 |------|------|--------|------|
+| 02 | 2026.07.27 | [키보드 타건 시뮬레이터](https://gousekid.github.io/weekly-website/weeks/02-keyboard-simulator/) | 청축·갈축·적축·무접점 타건음 실시간 합성 + 타건 히트맵 |
 | 01 | 2026.07.25 | [오늘의 퇴사 사유 생성기](https://gousekid.github.io/weekly-website/weeks/01-resignation-generator/) | 버튼 하나로 완성되는 나만의 사직서. 진지/광기 모드, 이미지 저장 |
 
 ## 구조

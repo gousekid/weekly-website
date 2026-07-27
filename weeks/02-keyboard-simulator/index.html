@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>키보드 타건 시뮬레이터</title>
+  <meta name="description" content="브라우저에서 즐기는 기계식 키보드 손맛. 청축·갈축·적축·무접점 타건음과 나만의 타건 히트맵.">
+  <meta property="og:title" content="키보드 타건 시뮬레이터">
+  <meta property="og:description" content="브라우저에서 즐기는 기계식 키보드 손맛. 축을 고르고 아무거나 쳐보세요.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="site-header">
+      <h1 class="site-title">키보드 타건 시뮬레이터 ⌨️</h1>
+      <p class="site-sub">축을 고르고, 아무거나 쳐보세요. 소리는 전부 실시간 합성입니다.</p>
+    </header>
+
+    <div class="toolbar">
+      <div class="switch-picker" role="tablist" aria-label="스위치 선택">
+        <button class="sw-btn is-active" data-profile="blue" role="tab" aria-selected="true">
+          <span class="sw-dot sw-blue"></span>청축<small>클릭클릭</small>
+        </button>
+        <button class="sw-btn" data-profile="brown" role="tab" aria-selected="false">
+          <span class="sw-dot sw-brown"></span>갈축<small>구름타법</small>
+        </button>
+        <button class="sw-btn" data-profile="red" role="tab" aria-selected="false">
+          <span class="sw-dot sw-red"></span>적축<small>스르륵</small>
+        </button>
+        <button class="sw-btn" data-profile="topre" role="tab" aria-selected="false">
+          <span class="sw-dot sw-topre"></span>무접점<small>도각도각</small>
+        </button>
+      </div>
+
+      <div class="tool-right">
+        <label class="vol">
+          🔊 <input type="range" id="volume" min="0" max="100" value="70" aria-label="볼륨">
+        </label>
+        <button class="tool-btn" id="heatToggle" aria-pressed="false">🔥 히트맵</button>
+        <button class="tool-btn" id="heatReset">지우기</button>
+      </div>
+    </div>
+
+    <section class="deck">
+      <div class="keyboard" id="keyboard" aria-hidden="true"></div>
+    </section>
+
+    <textarea class="pad" id="pad" rows="3" placeholder="여기에 아무거나 쳐보세요. 회의록이든, 사직서든, 아무 말이든..." spellcheck="false"></textarea>
+
+    <div class="stats">
+      <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">총 타수</span></div>
+      <div class="stat"><span class="stat-num" id="statKpm">0</span><span class="stat-label">타수/분</span></div>
+      <div class="stat"><span class="stat-num" id="statFav">-</span><span class="stat-label">최애 키</span></div>
+    </div>
+
+    <footer class="site-footer">
+      <p>weekly-website · week 02 · 실제 키보드 구매 욕구에 책임지지 않습니다</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

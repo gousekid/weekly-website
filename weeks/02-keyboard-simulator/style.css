@@ -1,0 +1,177 @@
+:root {
+  --bg: #101014;
+  --panel: #1a1b21;
+  --ink: #e8e6e3;
+  --sub: #8b8a94;
+  --case: #24252d;
+  --cap: #2e2f38;
+  --cap-top: #3a3b46;
+  --cap-ink: #d6d4df;
+  --accent: #4f8cff;
+  --u: clamp(30px, 5.6vw, 54px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% -20%, rgba(79,140,255,.08), transparent 55%),
+    var(--bg);
+  color: var(--ink);
+  font-family: "Apple SD Gothic Neo", Pretendard, system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 36px 14px 48px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.site-header { text-align: center; }
+.site-title { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; }
+.site-sub { margin-top: 8px; color: var(--sub); font-size: .95rem; }
+
+/* 툴바 */
+.toolbar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch-picker { display: flex; gap: 8px; flex-wrap: wrap; }
+.sw-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: inherit;
+  font-size: .92rem;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid #2c2d36;
+  border-radius: 12px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s, transform .08s;
+}
+.sw-btn small { color: var(--sub); font-size: .75rem; }
+.sw-btn:hover { border-color: #3d3e4a; }
+.sw-btn:active { transform: scale(.97); }
+.sw-btn.is-active { border-color: var(--accent); background: #20242f; }
+.sw-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.sw-blue { background: #3b82f6; }
+.sw-brown { background: #a16207; }
+.sw-red { background: #dc2626; }
+.sw-topre { background: #8b5cf6; }
+
+.tool-right { display: flex; gap: 8px; align-items: center; }
+.vol { display: flex; align-items: center; gap: 6px; color: var(--sub); }
+.vol input { width: 90px; accent-color: var(--accent); }
+.tool-btn {
+  font: inherit;
+  font-size: .88rem;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid #2c2d36;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.tool-btn:hover { border-color: #3d3e4a; }
+.tool-btn[aria-pressed="true"] { border-color: #ff6b4a; color: #ff8a6b; }
+
+/* 키보드 */
+.deck {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.keyboard {
+  min-width: 620px;
+  background: linear-gradient(180deg, #2a2b34, var(--case));
+  border: 1px solid #33343f;
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.krow { display: flex; gap: 7px; }
+
+.key {
+  position: relative;
+  flex: var(--w, 1) var(--w, 1) 0;
+  height: var(--u);
+  background: linear-gradient(180deg, var(--cap-top), var(--cap));
+  border: 1px solid #23242c;
+  border-bottom-width: 3px;
+  border-radius: 8px;
+  color: var(--cap-ink);
+  font-size: clamp(.6rem, 1.4vw, .82rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  transition: transform .04s, filter .04s;
+}
+.key::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  background: #ff4d2e;
+  opacity: var(--heat, 0);
+  pointer-events: none;
+  transition: opacity .2s;
+  mix-blend-mode: screen;
+}
+body:not(.heat-on) .key::after { opacity: 0; }
+.key.is-down {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+  filter: brightness(1.35);
+}
+.key.accent { color: var(--accent); }
+
+/* 타이핑 패드 */
+.pad {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid #2c2d36;
+  border-radius: 14px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 16px 18px;
+  resize: vertical;
+  outline: none;
+}
+.pad:focus { border-color: var(--accent); }
+.pad::placeholder { color: #5b5a66; }
+
+/* 통계 */
+.stats { display: flex; gap: 34px; }
+.stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.stat-num { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat-label { color: var(--sub); font-size: .82rem; }
+
+.site-footer { color: #5b5a66; font-size: .8rem; }
+
+@media (max-width: 640px) {
+  body { padding: 24px 10px 40px; }
+  .site-title { font-size: 1.35rem; }
+  .toolbar { justify-content: center; }
+  .stats { gap: 24px; }
+}
