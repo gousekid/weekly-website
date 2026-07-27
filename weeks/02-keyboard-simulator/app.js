@@ -38,7 +38,8 @@ const PROFILES = {
   blue:  { body: 1900, q: 1.1, decay: 0.070, gain: 0.85, click: 3600, clickGain: 0.55, sub: 0,   subGain: 0 },
   brown: { body: 1000, q: 0.9, decay: 0.055, gain: 0.80, click: 2200, clickGain: 0.18, sub: 0,   subGain: 0 },
   red:   { body: 620,  q: 0.8, decay: 0.048, gain: 0.70, click: 0,    clickGain: 0,    sub: 150, subGain: 0.10 },
-  topre: { body: 340,  q: 0.7, decay: 0.095, gain: 1.00, click: 1400, clickGain: 0.08, sub: 120, subGain: 0.35 },
+  // 무접점: 저음 쿵쿵이 아니라 중음대의 마르고 둥근 '도각'. 러버돔의 음정 하강(sub)이 핵심
+  topre: { body: 950,  q: 1.1, decay: 0.050, gain: 0.90, click: 1900, clickGain: 0.12, sub: 460, subGain: 0.30 },
 };
 
 /* ---------- 상태 ---------- */
@@ -118,19 +119,20 @@ function playKey(isBig, isRelease) {
     osc.stop(t + 0.02);
   }
 
-  // 3) 저역 '통울림' (무접점 도각, 스페이스 텅 소리)
+  // 3) 러버돔/통울림 '동↘' (무접점 도각, 스페이스 텅 소리) — 짧은 음정 하강이 핵심
   if ((p.sub || isBig) && !isRelease) {
+    const f0 = (p.sub || 170) * (isBig ? 0.6 : 1) * vary(0.06);
     const osc = actx.createOscillator();
     osc.type = "sine";
-    osc.frequency.setValueAtTime((p.sub || 170) * vary(0.06), t);
-    osc.frequency.exponentialRampToValueAtTime(Math.max((p.sub || 170) * 0.6, 40), t + 0.06);
+    osc.frequency.setValueAtTime(f0, t);
+    osc.frequency.exponentialRampToValueAtTime(Math.max(f0 * 0.55, 40), t + 0.05);
     const sg = actx.createGain();
     sg.gain.setValueAtTime(0.0001, t);
-    sg.gain.exponentialRampToValueAtTime((p.subGain || 0.12) * gainScale * 0.6, t + 0.004);
-    sg.gain.exponentialRampToValueAtTime(0.0001, t + 0.09);
+    sg.gain.exponentialRampToValueAtTime((p.subGain || 0.12) * gainScale * 0.6, t + 0.003);
+    sg.gain.exponentialRampToValueAtTime(0.0001, t + 0.075);
     osc.connect(sg).connect(master);
     osc.start(t);
-    osc.stop(t + 0.1);
+    osc.stop(t + 0.085);
   }
 }
 
