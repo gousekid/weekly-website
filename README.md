@@ -9,7 +9,9 @@
 | Week | 날짜 | 사이트 | 설명 |
 |------|------|--------|------|
 | 07 | 2026.07.28 | [1분 반응속도 올림픽](https://gousekid.github.io/weekly-website/weeks/07-reaction-olympics/) | 미니게임 5종목을 60초 안에 연달아, 500점 만점 + localStorage 명예의 전당 |
+| 06 | 2026.07.28 | [결정 장애 해결사](https://gousekid.github.io/weekly-website/weeks/06-decision-roulette/) | 물리 스핀 룰렛이 대신 결정 + 운명적 해설, 재도전할수록 뼈 때리는 멘트 |
 | 05 | 2026.07.28 | [가상 해우소](https://gousekid.github.io/weekly-website/weeks/05-bubble-wrap/) | 무한 뽁뽁이·접시 깨기·종이 던지기. 모든 효과음을 Web Audio 실시간 합성 |
+| 04 | 2026.07.28 | [월세 없는 방](https://gousekid.github.io/weekly-website/weeks/04-rent-free-room/) | 클릭에 반응하는 CSS 원룸. 실제 시간을 따르는 창밖 하늘, 로파이 라디오 합성, 고양이 |
 | 03 | 2026.07.28 | [지금, 지구 반대편은](https://gousekid.github.io/weekly-website/weeks/03-meanwhile-on-earth/) | 세계 22개 도시의 시간·하늘을 태양 고도 계산으로 실시간 렌더 + 대척점 하이라이트 |
 | 02 | 2026.07.27 | [키보드 타건 시뮬레이터](https://gousekid.github.io/weekly-website/weeks/02-keyboard-simulator/) | 청축·갈축·적축·무접점 타건음 실시간 합성 + 타건 히트맵 |
 | 01 | 2026.07.25 | [오늘의 퇴사 사유 생성기](https://gousekid.github.io/weekly-website/weeks/01-resignation-generator/) | 버튼 하나로 완성되는 나만의 사직서. 진지/광기 모드, 이미지 저장 |

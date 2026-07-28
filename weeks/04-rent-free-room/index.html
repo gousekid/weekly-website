@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>월세 없는 방</title>
+  <meta name="description" content="CSS로 지은 원룸. 램프를 켜고, 라디오를 틀고, 고양이를 깨워보세요. 창밖은 당신의 진짜 시간을 따라 흐릅니다.">
+  <meta property="og:title" content="월세 없는 방">
+  <meta property="og:description" content="보증금 없음, 월세 없음, 고양이 있음. 창밖은 당신의 진짜 시간입니다.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛋️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <h1>월세 없는 방</h1>
+      <p class="sub">CSS로 지은 원룸입니다. 보증금 없음, 월세 없음, 고양이 있음.</p>
+    </header>
+
+    <div class="stage-holder" id="stageHolder">
+      <div class="stage" id="stage">
+        <div class="wall"></div>
+        <div class="floor"></div>
+        <div class="baseboard"></div>
+
+        <div class="window">
+          <div class="sky" id="sky">
+            <div class="sky-inner" id="skyInner">
+              <div class="stars" id="stars"></div>
+              <div class="sun" id="sun"></div>
+              <div class="moon" id="moon"></div>
+              <div class="skyline"></div>
+            </div>
+          </div>
+          <div class="mullion v"></div>
+          <div class="mullion h"></div>
+        </div>
+        <div class="sill"></div>
+        <div class="curtain-rod"></div>
+        <div class="curtain left"></div>
+        <div class="curtain right"></div>
+
+        <div class="clock">
+          <div class="hand hour" id="handH"></div>
+          <div class="hand min" id="handM"></div>
+          <div class="hand sec" id="handS"></div>
+          <div class="clock-pin"></div>
+        </div>
+
+        <div class="shelf"></div>
+        <div class="book b1"></div>
+        <div class="book b2"></div>
+        <div class="book b3"></div>
+        <div class="cactus"></div>
+        <div class="cactus-pot"></div>
+
+        <div class="poster"><span>WEEKLY<br>WEBSITE</span><em>#04</em></div>
+
+        <div class="window-cast" id="windowCast"></div>
+        <div class="rug"></div>
+
+        <div class="desk-top"></div>
+        <div class="desk-leg l"></div>
+        <div class="desk-leg r"></div>
+
+        <div class="monitor" id="monitor" role="button" tabindex="0" aria-label="모니터 켜고 끄기" aria-pressed="false">
+          <div class="screen">
+            <div class="code">
+              <i></i><i></i><i></i><i></i><i></i>
+              <b class="cursor"></b>
+            </div>
+          </div>
+          <div class="monitor-neck"></div>
+          <div class="monitor-base"></div>
+        </div>
+
+        <div class="radio" id="radio" role="button" tabindex="0" aria-label="라디오 켜고 끄기" aria-pressed="false">
+          <div class="antenna"></div>
+          <div class="radio-body">
+            <div class="grill"></div>
+            <div class="eq"><i></i><i></i><i></i><i></i></div>
+            <div class="knob k1"></div>
+            <div class="knob k2"></div>
+            <div class="led"></div>
+          </div>
+        </div>
+
+        <div class="mug" id="mug" role="button" tabindex="0" aria-label="커피 리필하기">
+          <div class="mug-handle"></div>
+          <div class="steam s1"></div>
+          <div class="steam s2"></div>
+        </div>
+
+        <div class="lamp" id="lamp" role="button" tabindex="0" aria-label="램프 켜고 끄기" aria-pressed="false">
+          <div class="lamp-cone"></div>
+          <div class="lamp-shade"></div>
+          <div class="lamp-pole"></div>
+          <div class="lamp-base"></div>
+        </div>
+
+        <div class="plant" id="plant" role="button" tabindex="0" aria-label="화분 흔들기">
+          <div class="leaves">
+            <i class="lf1"></i><i class="lf2"></i><i class="lf3"></i><i class="lf4"></i><i class="lf5"></i>
+          </div>
+          <div class="pot"></div>
+        </div>
+
+        <div class="cat" id="cat" role="button" tabindex="0" aria-label="고양이 쓰다듬기">
+          <div class="tail"></div>
+          <div class="cat-body"></div>
+          <div class="cat-head">
+            <div class="ear l"></div>
+            <div class="ear r"></div>
+            <div class="eye l"></div>
+            <div class="eye r"></div>
+          </div>
+          <div class="zzz"><span>z</span><span>z</span><span>z</span></div>
+        </div>
+
+        <div class="shade" id="shade"></div>
+        <div class="glow glow-lamp" id="glowLamp"></div>
+        <div class="glow glow-mon" id="glowMon"></div>
+      </div>
+    </div>
+
+    <p class="status" id="status">방을 둘러보는 중…</p>
+    <p class="hint">램프 · 모니터 · 라디오 · 머그 · 화분 · 고양이 — 전부 눌러볼 수 있어요. 창밖은 당신의 진짜 시간입니다.</p>
+
+    <footer class="site-footer">
+      <p>weekly-website · week 04 · 이 방의 시간은 당신의 시계를 따릅니다</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
