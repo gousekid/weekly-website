@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결정 장애 해결사 — 운명의 룰렛</title>
+  <meta name="description" content="선택지를 넣으면 물리엔진 룰렛이 대신 결정해 드립니다. 운명적 해설은 덤.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <p class="eyebrow">WEEK 06 · 결정 장애 해결사</p>
+      <h1>운명의 룰렛</h1>
+      <p class="tagline">고민은 당신이 하고, 결정은 물리 법칙이 합니다.</p>
+    </header>
+
+    <div class="layout">
+      <section class="wheel-side" aria-label="룰렛">
+        <div class="wheel-stage">
+          <canvas id="wheel" width="420" height="420"></canvas>
+          <canvas id="confetti" width="420" height="420" aria-hidden="true"></canvas>
+          <button id="hub" class="hub" type="button" aria-label="룰렛 돌리기">돌려</button>
+        </div>
+        <p class="wheel-hint" id="wheelHint">가운데 버튼을 누르면 운명이 회전합니다</p>
+      </section>
+
+      <section class="panel" aria-label="선택지 편집">
+        <h2 class="panel-title">오늘의 고민거리</h2>
+        <form id="addForm" class="add-form">
+          <input id="addInput" type="text" maxlength="20" placeholder="선택지를 입력 (예: 마라탕)" autocomplete="off">
+          <button type="submit">추가</button>
+        </form>
+        <ul id="chips" class="chips" aria-live="polite"></ul>
+
+        <div class="presets">
+          <p class="presets-label">고민이 뭔지도 모르겠다면</p>
+          <div class="preset-btns">
+            <button type="button" data-preset="lunch">점심 메뉴</button>
+            <button type="button" data-preset="yesno">한다 / 안 한다</button>
+            <button type="button" data-preset="tonight">오늘 저녁 뭐하지</button>
+            <button type="button" data-preset="coffee">커피 주문</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <div id="resultOverlay" class="overlay" hidden>
+      <div class="result-card" role="dialog" aria-modal="true" aria-labelledby="resultChoice">
+        <p class="result-eyebrow" id="resultEyebrow">운명의 선고</p>
+        <h2 class="result-choice" id="resultChoice"></h2>
+        <p class="result-comment" id="resultComment"></p>
+        <div class="result-actions">
+          <button id="acceptBtn" type="button" class="primary">운명 받아들이기</button>
+          <button id="respinBtn" type="button">못 받아들이겠는데요</button>
+          <button id="shareBtn" type="button">결과 공유</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <a href="../../">← Weekly Website</a>
+      <span>결과에 대한 책임은 물리 법칙에 있습니다.</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
