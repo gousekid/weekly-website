@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가상 해우소</title>
+  <meta name="description" content="무한 뽁뽁이, 접시 깨기, 종이 구겨 던지기. 오늘의 스트레스를 여기 버리고 가세요.">
+  <meta property="og:title" content="가상 해우소">
+  <meta property="og:description" content="터뜨리고, 깨뜨리고, 던져버리세요. 소리는 전부 실시간 합성입니다.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <button class="icon-btn" id="muteBtn" aria-label="소리 켜기/끄기">🔊</button>
+      <h1>가상 해우소</h1>
+      <p class="sub">근심과 걱정을 터뜨리고, 깨뜨리고, 던져버리는 곳</p>
+      <div class="stats" aria-label="오늘의 해소 기록">
+        <span class="chip">🫧 <b id="statPops">0</b>뽁</span>
+        <span class="chip">🍽️ <b id="statPlates">0</b>장</span>
+        <span class="chip">📄 <b id="statPapers">0</b>장</span>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="해소 방법 선택">
+      <button class="tab" role="tab" data-mode="bubble" aria-selected="true">🫧 뽁뽁이</button>
+      <button class="tab" role="tab" data-mode="plate" aria-selected="false">🍽️ 접시 깨기</button>
+      <button class="tab" role="tab" data-mode="paper" aria-selected="false">📄 종이 던지기</button>
+    </nav>
+
+    <!-- 뽁뽁이 -->
+    <section class="mode" id="mode-bubble" aria-label="뽁뽁이">
+      <div class="sheet-wrap">
+        <div class="sheet" id="sheet"></div>
+        <div class="done-banner" id="doneBanner" hidden>
+          <p>한 판 완파! 🎉</p>
+          <button class="btn" id="doneRefill">새 뽁뽁이 깔기</button>
+        </div>
+      </div>
+      <div class="mode-foot">
+        <p class="mode-msg" id="bubbleMsg" aria-live="polite">누르거나, 문지르세요.</p>
+        <button class="btn ghost" id="refillBtn">새 뽁뽁이 깔기</button>
+      </div>
+    </section>
+
+    <!-- 접시 깨기 -->
+    <section class="mode" id="mode-plate" aria-label="접시 깨기" hidden>
+      <div class="plate-stage" id="plateStage">
+        <button class="plate" id="plate" aria-label="접시 깨기"></button>
+      </div>
+      <div class="mode-foot">
+        <p class="mode-msg" id="plateMsg" aria-live="polite">접시를 누르면 깨집니다. 진짜로요.</p>
+      </div>
+    </section>
+
+    <!-- 종이 던지기 -->
+    <section class="mode" id="mode-paper" aria-label="종이 던지기" hidden>
+      <div class="paper-stage">
+        <div class="paper-pad">
+          <textarea id="paperText" rows="4" maxlength="300"></textarea>
+          <button class="btn" id="throwBtn">구겨서 던지기</button>
+        </div>
+        <div class="bin-zone">
+          <div class="bin" id="bin" aria-hidden="true">
+            <div class="bin-lid"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mode-foot">
+        <p class="mode-msg" id="paperMsg" aria-live="polite">버리고 싶은 것을 적어보세요. 아무도 안 봅니다.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>weekly-website · week 05 · 소리는 전부 실시간 합성입니다 (음원 파일 0개) · 누적: 🫧 <span id="totalPops">0</span> · 🍽️ <span id="totalPlates">0</span> · 📄 <span id="totalPapers">0</span></p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
