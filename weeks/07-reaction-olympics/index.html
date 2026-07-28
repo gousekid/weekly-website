@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>1분 반응속도 올림픽</title>
+  <meta name="description" content="5개 종목, 60초. 당신의 신경계를 국가대표급으로 증명하세요.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- 인트로 -->
+    <section id="screen-intro" class="screen active">
+      <p class="eyebrow">WEEKLY WEBSITE · WEEK 07</p>
+      <h1 class="title">1분 반응속도<br><em>올림픽</em></h1>
+      <p class="tagline">5개 종목, 총 60초.<br>당신의 신경계는 국가대표감입니까?</p>
+
+      <ol class="event-list">
+        <li><span class="ico">🏃</span><b>스타트 반응</b><small>초록불이 켜지면 최대한 빨리</small></li>
+        <li><span class="ico">🎯</span><b>과녁 사냥</b><small>나타나는 과녁 8개를 연달아 격추</small></li>
+        <li><span class="ico">🎨</span><b>색깔 심판</b><small>글자의 뜻과 색이 같은지 판정</small></li>
+        <li><span class="ico">🔢</span><b>숫자 계주</b><small>흩어진 1~9를 순서대로 터치</small></li>
+        <li><span class="ico">🏹</span><b>양궁 타이밍</b><small>흔들리는 조준선을 정중앙에서 발사</small></li>
+      </ol>
+
+      <button id="btn-start" class="btn-primary">🔥 성화 점화 (시작)</button>
+      <p id="intro-best" class="intro-best" hidden></p>
+
+      <section id="intro-ranking" class="ranking" hidden>
+        <h2>🏟️ 명예의 전당</h2>
+        <ol id="ranking-list" class="ranking-list"></ol>
+      </section>
+    </section>
+
+    <!-- 게임 -->
+    <section id="screen-game" class="screen">
+      <header id="hud">
+        <div class="hud-left">
+          <span id="hud-event-no" class="hud-chip">1/5</span>
+          <span id="hud-event-name">스타트 반응</span>
+        </div>
+        <div class="hud-timer">
+          <div class="hud-bar"><i id="hud-bar-fill"></i></div>
+          <span id="hud-sec">60.0</span>
+        </div>
+        <div id="hud-score" class="hud-score">0점</div>
+      </header>
+      <div id="stage"></div>
+    </section>
+
+    <!-- 결과 -->
+    <section id="screen-result" class="screen">
+      <p class="eyebrow">시상식</p>
+      <div id="result-medal" class="result-medal">🥇</div>
+      <h2 id="result-title" class="result-title">인간 번개</h2>
+      <p id="result-total" class="result-total">432<small> / 500</small></p>
+      <p id="result-time" class="result-time"></p>
+
+      <ul id="result-breakdown" class="breakdown"></ul>
+
+      <div id="result-name-entry" class="name-entry" hidden>
+        <p>🏛️ 명예의 전당에 오를 기록입니다!</p>
+        <div class="name-row">
+          <input id="name-input" type="text" maxlength="10" placeholder="선수 이름" autocomplete="off">
+          <button id="btn-save-record" class="btn-small">등재</button>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button id="btn-retry" class="btn-primary">다시 도전</button>
+        <button id="btn-share" class="btn-ghost">결과 복사</button>
+        <button id="btn-home" class="btn-ghost">홈으로</button>
+      </div>
+    </section>
+
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
