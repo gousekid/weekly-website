@@ -1,0 +1,103 @@
+:root {
+  --bg: #0d1020;
+  --ink: #eef0fa;
+  --sub: #9aa0b8;
+  --panel: #181c30;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(90,120,255,.12), transparent 55%),
+    var(--bg);
+  color: var(--ink);
+  font-family: "Apple SD Gothic Neo", Pretendard, system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 56px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 히어로 */
+.hero { text-align: center; }
+.hero-here { color: var(--sub); font-size: .95rem; letter-spacing: .06em; }
+.hero-clock {
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+  margin-top: 6px;
+}
+.hero-date { color: var(--sub); margin-top: 4px; }
+.hero-line { margin-top: 16px; font-size: 1.05rem; color: #c9cde4; word-break: keep-all; }
+
+/* 대척점 카드 */
+.antipode {
+  background: linear-gradient(135deg, #1d2440, #251b3d);
+  border: 1px solid #333c63;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.anti-badge { font-size: .85rem; color: #8fa1ff; letter-spacing: .04em; }
+.anti-line { line-height: 1.75; word-break: keep-all; color: #dde1f5; }
+.anti-line strong { color: #fff; }
+
+/* 그룹/카드 */
+.group { display: flex; flex-direction: column; gap: 14px; }
+.group-title { font-size: 1.15rem; font-weight: 700; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid rgba(255,255,255,.09);
+  min-height: 172px;
+  transition: transform .15s ease;
+}
+.card:hover { transform: translateY(-3px); }
+.card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.card-city { font-weight: 700; font-size: .98rem; }
+.card-state { font-size: .8rem; opacity: .9; white-space: nowrap; }
+.card-clock { font-size: 1.9rem; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
+.card-diff { font-size: .78rem; opacity: .75; }
+.card-line { margin-top: 6px; font-size: .88rem; line-height: 1.55; word-break: keep-all; }
+.card-sig { font-size: .75rem; opacity: .65; margin-top: auto; }
+
+/* 상태별 하늘 (텍스트 대비 포함) */
+.sky-dawn      { background: linear-gradient(160deg, #1b1f4b, #4a3b78); color: #f0edff; }
+.sky-sunrise   { background: linear-gradient(160deg, #ff9a5a, #ffd06b); color: #3a2410; }
+.sky-morning   { background: linear-gradient(160deg, #6db9ff, #bfe3ff); color: #123252; }
+.sky-midday    { background: linear-gradient(160deg, #3f9bff, #8fd0ff); color: #0d2b4d; }
+.sky-afternoon { background: linear-gradient(160deg, #64a9f0, #ffd9a0); color: #23324a; }
+.sky-sunset    { background: linear-gradient(160deg, #ff7e5f, #d64b6b); color: #fff3ec; }
+.sky-dusk      { background: linear-gradient(160deg, #514a83, #2b2b55); color: #e8e4ff; }
+.sky-night     { background: linear-gradient(160deg, #1d2547, #12172e); color: #d6dcf5; }
+.sky-deepnight { background: linear-gradient(160deg, #0e1226, #090b18); color: #b8c0e0; }
+
+.site-footer { color: #5d6380; font-size: .8rem; text-align: center; }
+
+@media (max-width: 640px) {
+  body { padding: 32px 12px 44px; }
+  .cards { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+  .card { min-height: 156px; padding: 13px 14px; }
+  .card-clock { font-size: 1.5rem; }
+}
